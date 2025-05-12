@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+ <html>
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -7,26 +7,63 @@
     <link href="./styles.css" rel="stylesheet">
     <title>Hello World!</title>
   </head>
+
   <body>
-    <div class="titlebar">Cool titlebar</div>
-    <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-    </div> 
-    <div class="sidenav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+    <div class="titlebar">
+      <div class="titlebar-inner">
+        <div class="titlebar-text">My App</div>
+          <div class="titlebar-button-container mod-left">
+
+          </div>
+          <textarea id="text" class="searchbar" rows="1" cols="50" spellcheck="false">This is a textarea.</textarea>
+          <div class="titlebar-button-container mod-right">
+            there will be buttons here
+            <div class="titlebar-button mod-minimize" aria-label="Minimize">m</div>
+            <div class="titlebar-button mod-maximise" aria-label="Maximise">m</div>
+            <div class="titlebar-button mod-close" aria-label="Close">c</div>
+          </div>
+      </div>
     </div>
-    <div class="curvybutton">Button</div>
-    <button class="curvybutton">Button two</button>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>
+    
+    <div class="sidenav" id="sidenav" style="display: float; align-self: baseline; width: 230px; height: stretch;"> 
+      <div style="padding-top: 50px; overflow: scroll;">
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <div class="default-button">Test</div>
+        <button class="default-button">Test</button>
+        <textarea id="text" class="searchbar" rows="1" cols="50" autocapitalize="True">This is a textarea.</textarea>
+      
+      </div> 
+    </div>
+
+    <div class="belowtopnav" style="
+        position: absolute; 
+        inset-inline-start: 40px;
+        inset-block-start: 40px;
+        overflow: scroll; 
+        background-color: #36127c;
+        border: #fff solid 1px;
+    ">
+      <div class="content" id="content" style="display: flex; align-self: none;">
+        <h2>Content</h2>
+        <p>This is the content area.</p>
+      <div class="curvybutton">Button</div>
+      <button class="curvybutton">Button two</button>
+      <button class="curvybutton", id="loadTestOptions">Add thingy</button>
+      <h1>Hello World!</h1>
+      We are using Node.js <span id="node-version"></span>,
+      Chromium <span id="chrome-version"></span>,
+      and Electron <span id="electron-version"></span>
+
+      <canvas id="canvas" width="500" height="500" style="border:1px solid #36127c;"></canvas>
+      <div class="colored-panel" style="background-color:#ff0000;">
+        <div class="colored-panel" style="background-color:#00ff00;">
+
+        </div>
+      </div>
+      <textarea class="textinput" id="text" rows="4" cols="50" autocapitalize="True" style="resize: none;">This is a textarea.</textarea>
+  </div>
+
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

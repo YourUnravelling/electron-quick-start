@@ -6,9 +6,10 @@ function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     titleBarStyle: 'hidden',
-    ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
+    ...(process.platform !== 'darwin' ? { titleBarOverlay: {color: '#2f3241', symbolColor: '#74b1be', height: 40 } } : {}),
     width: 800,
     height: 600,
+    frame: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -18,7 +19,7 @@ function createWindow () {
   mainWindow.loadFile('index.html')
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -32,6 +33,10 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  
+  //BrowserWindow.getAllWindows[0].document.getElementById('loadCanvasPhButton').addEventListener('click', renderTableVisualisation);
+  //console.log(document)
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -43,3 +48,15 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+//document.body.onload = renderTableVisualisation;
+
+tabList = [];
+
+class tab {
+  constructor(name, address) {
+    this.name = name;
+    this.address = address;
+  }
+}
+
